@@ -52,19 +52,19 @@ function ServerList({ servers, onUpdate, onRemove }: {
                 value={server.name}
                 onChange={(e) => onUpdate(index, 'name', e.target.value)}
                 placeholder="Nombre del servidor"
-                className="w-full px-3 py-2 bg-surface rounded-md border border-gray-600 focus:border-primary focus:ring-1 focus:ring-primary"
+                className="w-full px-3 py-2 input-modern"
               />
               <input
                 type="url"
                 value={server.url}
                 onChange={(e) => onUpdate(index, 'url', e.target.value)}
                 placeholder="URL del servidor"
-                className="w-full px-3 py-2 bg-surface rounded-md border border-gray-600 focus:border-primary focus:ring-1 focus:ring-primary"
+                className="w-full px-3 py-2 input-modern"
               />
               <div className="flex justify-end">
                 <button
                   onClick={() => setEditingIndex(null)}
-                  className="text-primary hover:text-primary/80"
+                  className="text-primary hover:text-primary/80 font-medium px-4 py-1 glass-button rounded-lg text-sm"
                 >
                   Guardar
                 </button>
@@ -123,7 +123,7 @@ function VideoSelector({ onSelect, selectedVideos, onRemove }: VideoSelectorProp
             }}
             onFocus={() => setShowDropdown(true)}
             placeholder="Buscar videos..."
-            className="w-full pl-10 pr-4 py-2 bg-surface-light rounded-md border border-gray-600 focus:border-primary focus:ring-1 focus:ring-primary"
+            className="w-full pl-10 pr-4 py-2 input-modern"
           />
         </div>
       </div>
@@ -141,7 +141,7 @@ function VideoSelector({ onSelect, selectedVideos, onRemove }: VideoSelectorProp
                 }}
                 className="w-full px-4 py-2 text-left hover:bg-surface transition-colors flex items-center gap-2"
               >
-                <div className="w-16 h-9 bg-surface-light rounded overflow-hidden flex-shrink-0">
+                <div className="w-16 h-9 rounded-lg overflow-hidden flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
                   {video.customThumbnailUrl && (
                     <img
                       src={video.customThumbnailUrl}
@@ -506,7 +506,7 @@ export default function VideoForm({ onClose, initialData, onSubmit, standalone }
 
   return (
     <div className={standalone ? "" : "fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"}>
-      <div className={`bg-surface p-6 rounded-lg ${standalone ? "w-full max-w-xl mx-auto" : "w-full max-w-xl relative max-h-[90vh] overflow-y-auto"}`}>
+      <div className={`bg-surface/95 backdrop-blur-xl border border-white/10 p-8 rounded-2xl shadow-2xl ${standalone ? "w-full max-w-xl mx-auto" : "w-full max-w-xl relative max-h-[90vh] overflow-y-auto"}`}>
         <div className="space-y-6">
           <div className="flex flex-col gap-4">
             <h2 className="text-2xl font-bold">
@@ -599,7 +599,7 @@ export default function VideoForm({ onClose, initialData, onSubmit, standalone }
                 }
               }} className="space-y-6">
                 <div>
-                  <label htmlFor="title" className="block text-sm font-medium mb-1">
+                  <label htmlFor="title" className="block text-sm font-medium mb-2 text-gray-300">
                     Título *
                   </label>
                   <input
@@ -607,7 +607,7 @@ export default function VideoForm({ onClose, initialData, onSubmit, standalone }
                     id="title"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
-                    className="w-full px-3 py-2 bg-surface-light rounded-md border border-gray-600 focus:border-primary focus:ring-1 focus:ring-primary"
+                    className="w-full px-3 py-2 input-modern"
                     required
                   />
                 </div>
@@ -621,7 +621,7 @@ export default function VideoForm({ onClose, initialData, onSubmit, standalone }
                     id="url"
                     value={url}
                     onChange={(e) => setUrl(e.target.value)}
-                    className="w-full px-3 py-2 bg-surface-light rounded-md border border-gray-600 focus:border-primary focus:ring-1 focus:ring-primary"
+                    className="w-full px-3 py-2 input-modern"
                     required
                   />
                   {error && (
@@ -669,7 +669,7 @@ export default function VideoForm({ onClose, initialData, onSubmit, standalone }
                     id="description"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
-                    className="w-full px-3 py-2 bg-surface-light rounded-md border border-gray-600 focus:border-primary focus:ring-1 focus:ring-primary"
+                    className="w-full px-3 py-2 input-modern"
                     rows={3}
                   />
                 </div>
@@ -748,7 +748,7 @@ export default function VideoForm({ onClose, initialData, onSubmit, standalone }
                       onFocus={() => setShowActorSuggestions(true)}
                       onBlur={() => setTimeout(() => setShowActorSuggestions(false), 200)}
                       placeholder="Escribe nombres de actrices y presiona Enter o Espacio"
-                      className="w-full px-3 py-2 bg-surface-light rounded-md border border-gray-600 focus:border-primary focus:ring-1 focus:ring-primary"
+                      className="w-full px-3 py-2 input-modern"
                     />
                     {showActorSuggestions && actorInput.trim() && (
                       <div className="absolute z-10 w-full mt-1 bg-surface-light border border-gray-600 rounded-md shadow-lg max-h-48 overflow-y-auto">
@@ -994,7 +994,7 @@ export default function VideoForm({ onClose, initialData, onSubmit, standalone }
                 <button
                   type="submit"
                   disabled={isUploading}
-                  className="w-full bg-primary hover:bg-primary/90 text-white font-medium py-2 px-4 rounded-md disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full btn-gradient font-bold py-3 px-6 rounded-xl disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-primary/40 transform hover:-translate-y-0.5 transition-all duration-300"
                 >
                   {isUploading ? 'Procesando...' : (initialData ? 'Guardar Cambios' : 'Agregar Video')}
                 </button>

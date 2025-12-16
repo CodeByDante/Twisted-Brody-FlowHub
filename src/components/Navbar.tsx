@@ -27,7 +27,7 @@ export default function Navbar({ isSidebarOpen, setIsSidebarOpen }: NavbarProps)
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 bg-surface px-4 py-3 z-30">
+      <nav className="fixed top-0 left-0 right-0 glass-panel px-4 py-3 z-30 border-b border-white/5">
         <div className="w-full max-w-[2000px] mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-2 md:space-x-4">
             <button
@@ -58,7 +58,7 @@ export default function Navbar({ isSidebarOpen, setIsSidebarOpen }: NavbarProps)
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Buscar videos..."
-                className="w-64 rounded-full bg-surface-light py-2 pl-10 pr-4 text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary"
+                className="w-64 input-modern py-2 pl-10 pr-4 text-sm text-white focus:outline-none"
               />
             </form>
           </div>
@@ -81,7 +81,7 @@ export default function Navbar({ isSidebarOpen, setIsSidebarOpen }: NavbarProps)
         )}
       </nav>
 
-      <div className={`fixed inset-y-0 left-0 z-50 w-80 bg-surface transform transition-all duration-300 ease-out ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+      <div className={`fixed inset-y-0 left-0 z-50 w-80 glass-panel transform transition-all duration-300 ease-out border-r border-white/5 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
         }`}>
         <div className="h-full flex flex-col">
           <div className="p-4 border-b border-gray-700 flex items-center justify-between">

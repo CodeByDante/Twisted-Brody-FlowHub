@@ -13,7 +13,7 @@ interface VideoCardProps {
 
 export default function VideoCard({ video, onVideoClick }: VideoCardProps) {
   const { toggleFavorite, toggleSaved, favorites, saved } = useStore();
-  const provider = getVideoProvider(video.url);
+
   const thumbnail = video.customThumbnailUrl || getVideoThumbnail(video.url);
   const isFavorite = favorites.includes(video.id);
   const isSaved = saved.includes(video.id);
@@ -36,7 +36,7 @@ export default function VideoCard({ video, onVideoClick }: VideoCardProps) {
   };
 
   return (
-    <div className="bg-surface rounded-lg overflow-hidden shadow-lg group relative transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl animate-scale-in">
+    <div className="glass-panel rounded-xl overflow-hidden shadow-lg group relative card-hover">
       <div className="absolute top-2 right-2 z-10 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <button
           onClick={(e) => {
@@ -44,11 +44,10 @@ export default function VideoCard({ video, onVideoClick }: VideoCardProps) {
             e.stopPropagation();
             toggleFavorite(video.id);
           }}
-          className={`p-2 rounded-full backdrop-blur-sm transition-all duration-300 transform hover:scale-110 ${
-            isFavorite 
-              ? 'bg-primary text-white' 
-              : 'bg-black/50 text-white hover:bg-black/70'
-          }`}
+          className={`p-2 rounded-full backdrop-blur-sm transition-all duration-300 transform hover:scale-110 ${isFavorite
+            ? 'bg-primary text-white'
+            : 'bg-black/50 text-white hover:bg-black/70'
+            }`}
           title={isFavorite ? 'Quitar de favoritos' : 'Agregar a favoritos'}
         >
           <Heart className="h-4 w-4" fill={isFavorite ? 'currentColor' : 'none'} />
@@ -59,11 +58,10 @@ export default function VideoCard({ video, onVideoClick }: VideoCardProps) {
             e.stopPropagation();
             toggleSaved(video.id);
           }}
-          className={`p-2 rounded-full backdrop-blur-sm transition-all duration-300 transform hover:scale-110 ${
-            isSaved 
-              ? 'bg-primary text-white' 
-              : 'bg-black/50 text-white hover:bg-black/70'
-          }`}
+          className={`p-2 rounded-full backdrop-blur-sm transition-all duration-300 transform hover:scale-110 ${isSaved
+            ? 'bg-primary text-white'
+            : 'bg-black/50 text-white hover:bg-black/70'
+            }`}
           title={isSaved ? 'Quitar de guardados' : 'Guardar video'}
         >
           <Bookmark className="h-4 w-4" fill={isSaved ? 'currentColor' : 'none'} />
@@ -102,7 +100,7 @@ export default function VideoCard({ video, onVideoClick }: VideoCardProps) {
           </div>
         </div>
       </Link>
-      
+
       <div className="p-4 space-y-2">
         <Link
           to={`/video/${video.id}`}
@@ -113,7 +111,7 @@ export default function VideoCard({ video, onVideoClick }: VideoCardProps) {
             {video.title}
           </h2>
         </Link>
-        
+
         {video.description && (
           <p className="text-gray-400 text-sm line-clamp-2 transition-opacity duration-300 group-hover:opacity-100">
             {video.description}

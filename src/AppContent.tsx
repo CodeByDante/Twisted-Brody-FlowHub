@@ -76,7 +76,7 @@ export default function AppContent() {
       <Navbar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
       <div className={`transition-transform duration-300 ease-out ${isSidebarOpen && !isMobile ? 'md:scale-90 md:origin-right' : ''
         }`}>
-        <main className="w-full max-w-[2000px] mx-auto px-4 py-8 mt-16">
+        <main className="w-full max-w-[2000px] mx-auto px-4 py-8 mt-16 animate-fade-in">
           {error && (
             <div className="mb-6">
               <ErrorMessage

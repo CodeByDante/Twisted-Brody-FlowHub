@@ -14,6 +14,31 @@ body {
   min-height: -webkit-fill-available;
   overscroll-behavior: none;
   -webkit-overflow-scrolling: touch;
+  background-color: #121212;
+  color: #fff;
+}
+
+/* Glassmorphism Utilities */
+@layer components {
+  .glass-panel {
+    @apply bg-surface/80 backdrop-blur-xl border border-white/10;
+  }
+  
+  .glass-button {
+    @apply bg-surface/50 hover:bg-surface/80 backdrop-blur-md border border-white/5 transition-all duration-300;
+  }
+
+  .btn-gradient {
+    @apply bg-gradient-to-r from-primary to-[#9d65e5] hover:from-[#a66efc] hover:to-[#8b55d6] text-white shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all duration-300 transform hover:-translate-y-0.5;
+  }
+
+  .input-modern {
+    @apply bg-surface-light/50 border border-white/10 focus:border-primary/50 focus:ring-2 focus:ring-primary/20 rounded-xl transition-all duration-300 placeholder-gray-500;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-xl hover:shadow-black/20;
+  }
 }
 
 /* Custom animations */
@@ -66,21 +91,21 @@ body {
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 4px;
-  height: 4px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #1e1e1e;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #bb86fc;
-  border-radius: 4px;
+  background: rgba(187, 134, 252, 0.2);
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #9d65e5;
+  background: rgba(187, 134, 252, 0.4);
 }
 
 /* Hide scrollbar while keeping functionality */
@@ -161,12 +186,12 @@ body {
 .gallery-frame {
   position: relative;
   background: linear-gradient(145deg, #2d2d2d, #1e1e1e);
-  border-radius: 12px;
+  border-radius: 16px;
   padding: 8px;
   box-shadow: 
     0 4px 6px -1px rgba(0, 0, 0, 0.3),
     0 2px 4px -1px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
   transition: all 0.3s ease;
 }
 
@@ -182,13 +207,13 @@ body {
   content: '';
   position: absolute;
   inset: 4px;
-  border-radius: 8px;
+  border-radius: 12px;
   background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
   z-index: -1;
 }
 
 .gallery-image {
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
   position: relative;
 }
@@ -232,6 +257,7 @@ body {
   border-radius: 4px;
   outline: none;
   transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .slider::-webkit-slider-thumb {
@@ -240,32 +266,32 @@ body {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #bb86fc, #9d65e5);
+  background: #bb86fc;
   cursor: pointer;
-  border: 3px solid white;
-  box-shadow: 0 4px 12px rgba(187, 134, 252, 0.4);
+  border: 3px solid #121212;
+  box-shadow: 0 0 0 2px #bb86fc;
   transition: all 0.3s ease;
 }
 
 .slider::-webkit-slider-thumb:hover {
-  transform: scale(1.2);
-  box-shadow: 0 6px 20px rgba(187, 134, 252, 0.6);
+  transform: scale(1.1);
+  box-shadow: 0 0 0 4px rgba(187, 134, 252, 0.3);
 }
 
 .slider::-moz-range-thumb {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #bb86fc, #9d65e5);
+  background: #bb86fc;
   cursor: pointer;
-  border: 3px solid white;
-  box-shadow: 0 4px 12px rgba(187, 134, 252, 0.4);
+  border: 3px solid #121212;
+  box-shadow: 0 0 0 2px #bb86fc;
   transition: all 0.3s ease;
 }
 
 .slider::-moz-range-thumb:hover {
-  transform: scale(1.2);
-  box-shadow: 0 6px 20px rgba(187, 134, 252, 0.6);
+  transform: scale(1.1);
+  box-shadow: 0 0 0 4px rgba(187, 134, 252, 0.3);
 }
 
 /* Enhanced backdrop blur effects */
