@@ -1,0 +1,3 @@
+@echo off
+echo Iniciando Twisted Brody FlowHub...
+cmd /k "npm run dev"
